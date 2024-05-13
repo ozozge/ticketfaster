@@ -1,0 +1,18 @@
+Id,name,type,venueid,artistid,promoterid,date,ticketssold,lastmodified
+1,Taylor Swift Eras Tour,concert,4,1,1,5/14/2024 19:00,200,3/25/2024 3:25
+2,Taylor Swift Eras Tour,concert,4,1,1,5/15/2024 19:00,150,3/13/2024 19:13
+3,Taylor Swift Eras Tour,concert,5,1,1,5/19/2024 19:00,155,3/11/2024 8:47
+4,Tomorrow x Together Act Tour,concert,4,3,2,5/14/2024 19:00,110,3/9/2024 10:07
+5,Tomorrow x Together Act Tour,concert,5,3,2,5/29/2024 19:00,200,3/6/2024 16:50
+6,Tomorrow x Together Act Tour,concert,8,3,2,5/17/2024 19:00,150,2/23/2024 16:30
+7,Tomorrow x Together Act Tour,concert,6,3,2,6/1/2024 19:00,100,2/18/2024 17:59
+8,New York Rangers vs Ottawa Senators,sports,15,25,16,7/2/2024 20:00,12,2/1/2024 20:49
+9,Schaumburg Boomers vs Florence Yalls,sports,10,25,16,6/6/2024 20:00,15,1/20/2024 8:47
+10,New York Rangers vs Pittsburgh Penguins,sports,5,25,16,6/24/2024 19:00,10,1/13/2024 20:08
+11,Daniel Sloss stand up,theater,11,25,16,9/15/2024 19:30,50,1/10/2024 6:37
+12,Daniel Sloss stand up,theater,3,25,16,10/24/2024 19:30,75,1/7/2024 15:37
+13,Wheel Of Fortune Live,family,11,25,16,10/10/2024 20:00,10,1/1/2024 5:01
+14,Disney on ice presents Frozen and Encanto,family,12,25,16,9/7/2024 18:00,20,12/17/2023 20:33
+15,Disney on ice presents Frozen and Encanto,family,13,25,16,9/13/2024 18:00,30,12/13/2023 2:38
+16,Disney on ice presents Frozen and Encanto,family,13,25,16,10/14/2024 18:00,24,12/4/2023 8:52
+17,Disney on ice presents Frozen and Encanto,family,14,25,16,11/18/2024 18:00,16,2/19/2024 17:43

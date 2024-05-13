@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    <style>
+        input,
+        button {
+            display: block;
+            margin-bottom: 10px;
+            width: 200px;
+            padding: 8px;
+        }
+
+        form {
+            width: 300px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="{{ url_for('signin') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Sign in</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm and Process Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Payment Details</h1>
+        <p><strong>Name:</strong> {{ account_details.name }}</p>
+        <p><strong>Card Number:</strong> {{ account_details.cardno | replace(account_details.cardno[:-4], '*' * 12) }}
+        </p>
+        <p><strong>Expiration:</strong> {{ account_details.expirationmonth }} / {{ account_details.expirationyr }}</p>
+
+        <h2>Ticket Details</h2>
+        <p><strong>Event:</strong> {{ ticket_details.event }}</p>
+        <p><strong>Venue:</strong> {{ ticket_details.venue }}</p>
+        <p><strong>Date:</strong> {{ ticket_details.eventdates }}</p>
+        <p><strong>Zone:</strong> {{ ticket_details.zone }}</p>
+        <p><strong>Row:</strong> {{ ticket_details.rown }}</p>
+        <p><strong>Seat:</strong> {{ ticket_details.seat }}</p>
+        <p><strong>Price:</strong> ${{ ticket_details.price }}</p>
+
+        <form action="{{ url_for('process_payment', ticket_id=ticket_id) }}" method="POST">
+            <button type="submit">Buy</button>
+        </form>
+    </div>
+</body>
+
+</html>

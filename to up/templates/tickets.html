@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Available Tickets</h1>
+    <h3>Event: {{ event_details.Event }}</h3>
+    <p>Venue: {{ event_details.Venue }}</p>
+    <p>Date: {{ event_details.EventDate }}</p>
+    <form action="{{ url_for('process_payment') }}" method="POST">
+        <table>
+            <thead>
+                <tr>
+                    <th>Zone</th>
+                    <th>Row</th>
+                    <th>Seat</th>
+                    <th>Price</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.zone }}</td>
+                    <td>{{ ticket.rown }}</td>
+                    <td>{{ ticket.seat }}</td>
+                    <td>${{ ticket.price }}</td>
+                    <td><input type="radio" name="ticket_id" value="{{ ticket.ID }}"></td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">No tickets available.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Buy</button>
+    </form>
+</body>
+
+</html>

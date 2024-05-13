@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ticketfaster!</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/concert.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            background-attachment:fixed;
+            color: white;
+            margin: 0;
+        }
+
+        .banner {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Optional: Add a semi-transparent background for banner text */
+            padding: 10px;
+            /* Add padding to make the banner look better */
+            border-radius: 5px;
+            /* Optional: Rounded corners for the banner */
+        }
+
+        nav a {
+            margin-right: 10px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">Ticketfaster!</div>
+    <nav>
+        <a href="{{ url_for('register') }}" style="color: black; background-color: white; padding: 5px; border-radius: 5px;">Register</a>
+        <a href="{{ url_for('signin') }}" style="color: black; background-color: white; padding: 5px; border-radius: 5px;">Sign In</a>
+    </nav>
+    <form action="{{ url_for('search') }}" method="get" style="margin-top: 20px;">
+        <input type="text" name="query" placeholder="Search" style="color: black;">
+        <input type="submit" value="Search" style="color: black;">
+    </form>
+
+    <!-- State dropdown -->
+    <form id="searchForm" action="{{ url_for('search') }}" method="get" style="margin-top: 20px;">
+        <select name="state" style="color: black; background-color: white; vertical-align: middle; padding: 8px;">
+            <option value="" style="color: black;">Select State</option>
+            {% for state in states %}
+            <option value="{{ state }}" style="color: black;">{{ state }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" name="event_type" value="concert" style="color: black; margin-right: 10px; vertical-align: middle; padding: 8px 12px;">Concerts</button>
+        <button type="submit" name="event_type" value="sports" style="color: black; margin-right: 10px; vertical-align: middle; padding: 8px 12px;">Sports</button>
+        <button type="submit" name="event_type" value="arts&theater" style="color: black; margin-right: 10px; vertical-align: middle; padding: 8px 12px;">Arts & Theater</button>
+        <button type="submit" name="event_type" value="family" style="color: black; vertical-align: middle; padding: 8px 12px;">Family</button>
+    </form>
+
+</body>
+
+</html>

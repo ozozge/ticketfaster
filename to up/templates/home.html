@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ticketfaster Home</title>
+    <style>
+        .user-info {
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Ticketfaster!</h1>
+        <div class="user-info">
+            <a href="/account?username={{ username }}">{{ username }}</a>
+        </div>
+    </header>
+    <nav>
+        <input type="text" placeholder="Search" onkeypress="searchEvents(event)">
+        <button onclick="filterEvents('concert')">Concerts</button>
+        <button onclick="filterEvents('sports')">Sports</button>
+        <button onclick="filterEvents('arts&theater')">Arts & Theater</button>
+        <button onclick="filterEvents('family')">Family</button>
+    </nav>
+    <script>
+        function filterEvents(eventType) {
+            const username = "{{ username }}";
+            const userState = "{{ user_state }}";
+            window.location.href = `/filter_events?event_type=${eventType}&state=${userState}&username=${username}`;
+        }
+
+        function searchEvents(e) {
+            if (e.key === 'Enter') {
+                const username = "{{ username }}";
+                const query = e.target.value;
+                window.location.href = `/search?query=${query}&username=${username}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Filtered Events</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .navigation {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation">
+        <a href="/home?username={{ username }}">Home</a>
+        <a href="/account?username={{ username }}">My Account</a>
+    </div>
+
+    <h1>Events - {{ user_state }}</h1>
+    <table>
+        <tr>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>Artist</th>
+        </tr>
+        {% for event in events %}
+        <tr>
+            <td><a href="{{ url_for('event_tickets', event_id=event.ID) }}">{{ event.event }}</a></td>
+            <td>{{ event.eventdates.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>{{ event.venue }}</td>
+            <td>{{ event.artist }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">No events found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

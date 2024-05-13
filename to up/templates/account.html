@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Account - Ticketfaster</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <h1>Account Details</h1>
+    <form action="/account?username={{ username }}" method="post">
+        <div>
+            <label>First Name:</label>
+            <span>{{ user_details.firstname }}</span>
+        </div>
+        <div>
+            <label>Last Name:</label>
+            <span>{{ user_details.lastname }}</span>
+        </div>
+        <div>
+            <label>Address:</label>
+            <input type="text" name="address" value="{{ user_details.address }}">
+        </div>
+        <div>
+            <label>City:</label>
+            <input type="text" name="city" value="{{ user_details.city }}">
+        </div>
+        <div>
+            <label>State:</label>
+            <input type="text" name="state" value="{{ user_details.state }}">
+        </div>
+        <div>
+            <label>Zip:</label>
+            <input type="text" name="zip" value="{{ user_details.zip }}">
+        </div>
+        <div>
+            <label>Phone:</label>
+            <input type="text" name="phone" value="{{ user_details.phone }}">
+        </div>
+        <div>
+            <label>Email:</label>
+            <span>{{ user_details.email }}</span>
+        </div>
+        <button type="submit">Update Details</button>
+        <button type="submit" name="delete" value="delete"
+            onclick="return confirm('Are you sure you want to delete your account?');">Delete My Account</button>
+    </form>
+</body>
+
+</html>
